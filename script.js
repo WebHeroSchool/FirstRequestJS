@@ -24,11 +24,13 @@ fetch('https://api.github.com/users/' + name)
 			userName.innerHTML = name;
 			body.appendChild(userName);
 		}
+
 		let addDescription = () => {
 			let userDescription = document.createElement('h2');
 			userDescription.innerHTML = description;
 			body.appendChild(userDescription);
 		}
+
 		let addAvatar = () => {
 			let userAvatar = document.createElement('img');
 			let newString = document.createElement('br');
@@ -36,6 +38,7 @@ fetch('https://api.github.com/users/' + name)
 			body.appendChild(userAvatar);
 			body.appendChild(newString);
 		}
+
 		let addUrl = () => {
 			let userUrl = document.createElement('a');
 			let text = document.createTextNode('profile');
@@ -43,8 +46,10 @@ fetch('https://api.github.com/users/' + name)
 			userUrl.href = 'https://github.com/' + name;
 			body.appendChild(userUrl);
 		}
+
 		addName();
 		addDescription();
 		addAvatar();
 		addUrl();
-	}).catch(err => alert(err + 'Информация о пользователе не доступна'));
+	})
+	.catch(err => alert(err + 'Информация о пользователе не доступна'));
